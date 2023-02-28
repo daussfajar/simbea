@@ -1,0 +1,4 @@
+scrolling-nav.js
+jquery.easing.min.js
+
+popper = background active saat di scroll
