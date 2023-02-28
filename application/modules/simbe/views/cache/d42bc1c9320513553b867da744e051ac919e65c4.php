@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>UPJ MBKM | Admin @yield('title')</title>
+	<title>UPJ MBKM | Admin <?php echo $__env->yieldContent('title'); ?></title>
 	<!-- App favicon -->
 	<link rel="shortcut icon" href="assets/icon/favicon/favicon.ico">
 
@@ -15,7 +15,7 @@
 	<link href="assets/css-app/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
     
-	@yield('css')
+	<?php echo $__env->yieldContent('css'); ?>
     
     
 </head>
@@ -68,7 +68,7 @@
 						role="button" aria-haspopup="false" aria-expanded="false">
 						<img src="assets/icon/all/logo.png" alt="user-image" class="rounded-circle">
 						<span
-							class="d-none d-sm-inline-block ml-1">{{ $CI->session->userdata('user_sessions')['nama_user'] }}</span>
+							class="d-none d-sm-inline-block ml-1"><?php echo e($CI->session->userdata('user_sessions')['nama_user']); ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 						<!-- item-->
@@ -135,11 +135,11 @@
 							</a>
 						</li>
 
-                        @if ($level == "admin" || $level == "dekan")
-							@php								
+                        <?php if($level == "admin" || $level == "dekan"): ?>
+							<?php								
 								$exm = explode('|', $akses);
-							@endphp
-                            @if (!empty($akses))
+							?>
+                            <?php if(!empty($akses)): ?>
                                 <li>
                                     <a href="javascript: void(0);" class="waves-effect waves-light">
                                         <i class="mdi mdi-clipboard-check-multiple"></i>
@@ -147,206 +147,160 @@
                                         <span class="menu-arrow"></span>
                                     </a>
                                     <ul class="nav-second-level" aria-expanded="false">                                        
-                                        @foreach ($exm as $mn)
-                                             @php
+                                        <?php $__currentLoopData = $exm; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                             <?php
                                                   $menu = $CI->db->get_where('mbkm_program', ['id' => $mn, 'status' => 'aktif'])->row();
-                                             @endphp			
+                                             ?>			
                                              <li>
                                                   <a href="admin/approval/' . $menu->view_file) }}">
-                                                       <span> {{ $menu->judul_program }} </span>                                            
+                                                       <span> <?php echo e($menu->judul_program); ?> </span>                                            
                                                   </a>
                                              </li>
-                                        @endforeach
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </ul>
                                 </li>
-                            @endif                
-                        @endif
+                            <?php endif; ?>                
+                        <?php endif; ?>
 
-                        @if ($level == 'superuser')
-                            @php								
+                        <?php if($level == 'superuser'): ?>
+                            <?php								
 								$exm = explode('|', $akses);
-							@endphp
+							?>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect waves-light {{
-                                    $CI->uri->segment(2) == 'approval' ? 'active' : ''
-                                }}">
+                                <a href="javascript: void(0);" class="waves-effect waves-light <?php echo e($CI->uri->segment(2) == 'approval' ? 'active' : ''); ?>">
                                     <i class="mdi mdi-clipboard-check-multiple"></i>
                                     <span> Approval </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <ul class="nav-second-level {{
-                                    $CI->uri->segment(2) == 'approval' ? 'mm-show' : ''
-                                }}" aria-expanded="false">                                        
-                                    @foreach ($exm as $mn)
-                                        @php
+                                <ul class="nav-second-level <?php echo e($CI->uri->segment(2) == 'approval' ? 'mm-show' : ''); ?>" aria-expanded="false">                                        
+                                    <?php $__currentLoopData = $exm; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
                                             $menu = $CI->db->get_where('mbkm_program', ['id' => $mn, 'status' => 'aktif'])->row();
-                                        @endphp			
-                                        <li class="{{
-                                            ($CI->uri->segment(2) == 'approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'mm-active' : ''
-                                        }}">
-                                            <a href="admin/approval/' . $menu->view_file) }}" class="{{
-                                                ($CI->uri->segment(2) == 'approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'active' : ''
-                                            }}">
-                                                <span> {{ $menu->judul_program }} </span>                                            
+                                        ?>			
+                                        <li class="<?php echo e(($CI->uri->segment(2) == 'approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'mm-active' : ''); ?>">
+                                            <a href="admin/approval/' . $menu->view_file) }}" class="<?php echo e(($CI->uri->segment(2) == 'approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'active' : ''); ?>">
+                                                <span> <?php echo e($menu->judul_program); ?> </span>                                            
                                             </a>
                                         </li>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect waves-light {{
-                                    $CI->uri->segment(2) == 'history_approval' ? 'active' : ''
-                                }}">
+                                <a href="javascript: void(0);" class="waves-effect waves-light <?php echo e($CI->uri->segment(2) == 'history_approval' ? 'active' : ''); ?>">
                                     <i class="mdi mdi-history"></i>
                                     <span> History Approval </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <ul class="nav-second-level {{
-                                    $CI->uri->segment(2) == 'history_approval' ? 'mm-show' : ''
-                                }}" aria-expanded="false">                                        
-                                    @foreach ($exm as $mn)
-                                        @php
+                                <ul class="nav-second-level <?php echo e($CI->uri->segment(2) == 'history_approval' ? 'mm-show' : ''); ?>" aria-expanded="false">                                        
+                                    <?php $__currentLoopData = $exm; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $mn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
                                             $menu = $CI->db->get_where('mbkm_program', ['id' => $mn, 'status' => 'aktif'])->row();
-                                        @endphp			
-                                        <li class="{{
-                                            ($CI->uri->segment(2) == 'history_approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'mm-active' : ''
-                                        }}">
-                                            <a href="admin/history_approval/' . $menu->view_file) }}" class="{{
-                                                ($CI->uri->segment(2) == 'history_approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'active' : ''
-                                            }}">
-                                                <span> {{ $menu->judul_program }} </span>                                            
+                                        ?>			
+                                        <li class="<?php echo e(($CI->uri->segment(2) == 'history_approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'mm-active' : ''); ?>">
+                                            <a href="admin/history_approval/' . $menu->view_file) }}" class="<?php echo e(($CI->uri->segment(2) == 'history_approval') && ($CI->uri->segment(3) == $menu->view_file) ? 'active' : ''); ?>">
+                                                <span> <?php echo e($menu->judul_program); ?> </span>                                            
                                             </a>
                                         </li>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </ul>
                             </li>
                             <li>
-                                <a href="javascript: void(0);" class="waves-effect waves-light {{
-                                    $CI->uri->segment(2) == 'master_data' ? 'active' : ''
-                                }}">
+                                <a href="javascript: void(0);" class="waves-effect waves-light <?php echo e($CI->uri->segment(2) == 'master_data' ? 'active' : ''); ?>">
                                     <i class="mdi mdi-database"></i>
                                     <span> Master Data </span>
                                     <span class="menu-arrow"></span>
                                 </a>
-                                <ul class="nav-second-level {{
-                                    $CI->uri->segment(2) == 'master_data' ? 'mm-show' : ''
-                                }}" aria-expanded="false">
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'students' ? 'mm-active' : ''
-                                    }}">
+                                <ul class="nav-second-level <?php echo e($CI->uri->segment(2) == 'master_data' ? 'mm-show' : ''); ?>" aria-expanded="false">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'students' ? 'mm-active' : ''); ?>">
                                         <a href="admin/master_data/students" >
                                             <span> Mahasiswa </span>                                            
                                         </a>                                        
                                     </li>
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'dosen' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'dosen' ? 'mm-active' : ''); ?>">
                                         <a href="admin/master_data/dosen">
                                             <span> Dosen </span>                                            
                                         </a>                                        
                                     </li>
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'orangtua' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'orangtua' ? 'mm-active' : ''); ?>">
                                         <a href="admin/master_data/orangtua" >
                                             <span> Orangtua </span>                                            
                                         </a>                                        
                                     </li>                                   
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'users' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'users' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Users </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'users' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/users">Akun Pengguna</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'users' ? 'mm-active' : ''); ?>"><a href="admin/master_data/users">Akun Pengguna</a></li>
                                         </ul>
                                     </li>                                                                        
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'data_admin' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'data_admin' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Admin </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'data_admin' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/data_admin">Data Admin</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'data_admin' ? 'mm-active' : ''); ?>"><a href="admin/master_data/data_admin">Data Admin</a></li>
                                         </ul>
                                     </li>								
                                     <li class="
-                                    @switch($CI->uri->segment(3))
-                                        @case('academic_year')
-                                            {{ 'mm-active' }}
-                                            @break
-                                        @case('kurikulum')
-                                            {{ 'mm-active' }}
-                                            @break
-                                        @case('study_program')
-                                            {{ 'mm-active' }}
-                                            @break
-                                        @case('program')
-                                            {{ 'mm-active' }}
-                                            @break
-                                        @case('faculty')
-                                            {{ 'mm-active' }}
-                                            @break
-                                        @case('matkul')
-                                            {{ 'mm-active' }}
-                                            @break
-                                    @endswitch
+                                    <?php switch($CI->uri->segment(3)):
+                                        case ('academic_year'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                        <?php case ('kurikulum'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                        <?php case ('study_program'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                        <?php case ('program'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                        <?php case ('faculty'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                        <?php case ('matkul'): ?>
+                                            <?php echo e('mm-active'); ?>
+
+                                            <?php break; ?>
+                                    <?php endswitch; ?>
                                     ">
                                         <a href="javascript:void(0)">
                                             <span> Akademik </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'kurikulum' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/kurikulum">Kurikulum</a></li>    
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'matkul' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'kurikulum' ? 'mm-active' : ''); ?>"><a href="admin/master_data/kurikulum">Kurikulum</a></li>    
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'matkul' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/matkul">
                                                 Matakuliah
                                                 </a>                                        
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'academic_year' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/academic_year">Tahun Akademik</a></li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'study_progarm' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/study_program">Prodi</a></li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'program' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/program">Program</a></li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'faculty' ? 'mm-active' : ''
-                                            }}"><a href="admin/master_data/faculty">Fakultas</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'academic_year' ? 'mm-active' : ''); ?>"><a href="admin/master_data/academic_year">Tahun Akademik</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'study_progarm' ? 'mm-active' : ''); ?>"><a href="admin/master_data/study_program">Prodi</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'program' ? 'mm-active' : ''); ?>"><a href="admin/master_data/program">Program</a></li>
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'faculty' ? 'mm-active' : ''); ?>"><a href="admin/master_data/faculty">Fakultas</a></li>
                                         </ul>
                                     </li>                                
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-magang' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-magang' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Magang Kerja </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-magang' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-magang' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-magang">
                                                     <span> Bidang Magang </span>										
                                                 </a>									
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'jenis-magang' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'jenis-magang' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/jenis-magang">
                                                     <span> Jenis Magang </span>										
                                                 </a>									
@@ -354,24 +308,18 @@
                                         </ul>
                                     </li>
 
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-membangun' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-membangun' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Membangun Desa </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-membangun' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-membangun' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-membangun">
                                                     <span> Bidang Membangun </span>										
                                                 </a>									
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'jenis-membangun' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'jenis-membangun' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/jenis-membangun">
                                                     <span> Jenis Membangun </span>										
                                                 </a>									
@@ -379,24 +327,18 @@
                                         </ul>
                                     </li>
 
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-studi' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-studi' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Studi Independen </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-studi' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-studi' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-studi">
                                                     <span> Bidang Studi Independen </span>										
                                                 </a>									
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'jenis-studi' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'jenis-studi' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/jenis-studi">
                                                     <span> Jenis Studi Independen </span>										
                                                 </a>									
@@ -404,24 +346,18 @@
                                         </ul>
                                     </li>
 
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-proyek' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-proyek' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Proyek Kemanusiaan </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-proyek' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-proyek' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-proyek">
                                                     <span> Bidang Proyek Kemanusiaan </span>										
                                                 </a>									
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'jenis-proyek' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'jenis-proyek' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/jenis-proyek">
                                                     <span> Jenis Proyek Kemanusiaan </span>										
                                                 </a>									
@@ -429,24 +365,18 @@
                                         </ul>
                                     </li>
 
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-asistensi' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-asistensi' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Asistensi Pengajar </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-asistensi' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-asistensi' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-asistensi">
                                                     <span> Bidang Asistensi Pengajaran </span>										
                                                 </a>									
                                             </li>
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'jenis-asistensi' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'jenis-asistensi' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/jenis-asistensi">
                                                     <span> Jenis Asistensi Pengajaran </span>										
                                                 </a>									
@@ -454,34 +384,26 @@
                                         </ul>
                                     </li>
 
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'bidang-penelitian' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'bidang-penelitian' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Penelitian </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-penelitian' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-penelitian' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-penelitian">
                                                     <span> Bidang Penelitian </span>										
                                                 </a>									
                                             </li>                                            
                                         </ul>
                                     </li>
-                                    <!--<li class="{{
-                                        $CI->uri->segment(3) == 'wirausaha' ? 'mm-active' : ''
-                                    }}">
+                                    <!--<li class="<?php echo e($CI->uri->segment(3) == 'wirausaha' ? 'mm-active' : ''); ?>">
                                         <a href="javascript:void(0)">
                                             <span> Wirausaha </span>
                                             <span class="menu-arrow"></span>
                                         </a>
                                         <ul class="nav-second-level" aria-expanded="false">                                        
-                                            <li class="{{
-                                                $CI->uri->segment(3) == 'bidang-wirausaha' ? 'mm-active' : ''
-                                            }}">
+                                            <li class="<?php echo e($CI->uri->segment(3) == 'bidang-wirausaha' ? 'mm-active' : ''); ?>">
                                                 <a href="admin/master_data/bidang-wirausaha">
                                                     <span> Bidang Wirausaha </span>										
                                                 </a>									
@@ -491,24 +413,20 @@
                                 </ul>
                             </li>    
                             <li class="">
-                                <a href="javascript: void(0);" class="waves-effect waves-light {{
-                                    $CI->uri->segment(3) == 'program-mbkm' ? 'active' : ''
-                                }}">
+                                <a href="javascript: void(0);" class="waves-effect waves-light <?php echo e($CI->uri->segment(3) == 'program-mbkm' ? 'active' : ''); ?>">
                                     <i class="mdi mdi-application"></i>
                                     <span> MBKM </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">                                    
-                                    <li class="{{
-                                        $CI->uri->segment(3) == 'program-mbkm' ? 'mm-active' : ''
-                                    }}">
+                                    <li class="<?php echo e($CI->uri->segment(3) == 'program-mbkm' ? 'mm-active' : ''); ?>">
                                         <a href="admin/mbkm/program-mbkm">
                                             <span> Program </span>										
                                         </a>									
                                     </li>                                    
                                 </ul>
                             </li>
-                        @endif                        
+                        <?php endif; ?>                        
 					</ul>
 
 				</div>
@@ -536,17 +454,17 @@
 								<div class="page-title-right">
 									<ol class="breadcrumb m-0">
 										<li class="breadcrumb-item"><a href="javascript: void(0);">UPJ MBKM</a></li>
-										@yield('breadcrumb')
+										<?php echo $__env->yieldContent('breadcrumb'); ?>
 									</ol>
 								</div>
-								<h4 class="page-title">@yield('page-title')</h4>
+								<h4 class="page-title"><?php echo $__env->yieldContent('page-title'); ?></h4>
 							</div>
 						</div>
 					</div>
 					<!-- end page title -->
 
 					<div class="row">
-						@yield('content')
+						<?php echo $__env->yieldContent('content'); ?>
 					</div>
 					<!-- end row -->
 
@@ -640,13 +558,8 @@
 	<!-- Vendor js -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script src="assets/js/vendor.min.js"></script>	
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.esm.js" integrity="sha512-YM18yiANXJFpbiOZjLzUrK/lNfTiBcwtTLeAntG4B8dJY+NdUDjxfPNGPEMuOdXlT7U/uT+zbIvbQYAEFog+MA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.esm.min.js" integrity="sha512-yPOQ2pPoQ9JtP0/jDKpXiKyWNCJWT5OI+6r1EqZmTg+afKQOBpy08VYboeq+Tt9kl9/FOCueEhH6cmHN3nAdJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/helpers.esm.js" integrity="sha512-dSutS1n8KEMUnQMa9YGa6CxAmoUfaZdxL2+s2xBgEq7WHaWdtjna/rzGsjqkT27GxKBDLT0Fr3C/TzzHvBRaAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/helpers.esm.min.js" integrity="sha512-vxCPccgWacJoW2HlxhlKKtczdzvcg0r1UuB9LfNGt6vsDbgLfSFxKlolUS2mqKNXrOK5b93S45309T+V5BhueA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.js" integrity="sha512-5m2r+g00HDHnhXQDbRLAfZBwPpPCaK+wPLV6lm8VQ+09ilGdHfXV7IVyKPkLOTfi4vTTUVJnz7ELs7cA87/GMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
-	@yield('js')
+    
+	<?php echo $__env->yieldContent('js'); ?>
 
 	<!-- App js -->
 	<script src="assets/js/app.min.js"></script>    
@@ -654,3 +567,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\simbea\application\modules\simbe\views/coba.blade.php ENDPATH**/ ?>
