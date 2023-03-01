@@ -6,4 +6,5 @@ Route::get('foo', 'simbe/SimbeHome@index');
 
 Route::group('/', function () {
      Route::get('admin', 'simbe/SimbeAdmin@index');
+     Route::get('admin/blank', 'simbe/SimbeAdmin@tes');
 });
