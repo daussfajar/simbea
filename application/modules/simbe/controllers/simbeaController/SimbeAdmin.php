@@ -8,9 +8,4 @@ class SimbeAdmin extends CI_Controller
      {
           return m_view('simbe', 'admin/bkal/mahasiswa');
      }
-
-     public function tes()
-     {
-          return m_view('simbe', 'layouts/master');
-     }
 }

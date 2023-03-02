@@ -10,8 +10,8 @@
      <link rel="shortcut icon" href="assets/icon/favicon/favicon.ico">
 
      <!-- APP CSS -->
-     
-     <link rel="stylesheet" href="<?php echo e(base_url('/assets/css/bootstrap.min.css')); ?>" type="text/css" id="bootsrap-stylesheet" />
+     <link rel="stylesheet" href="<?php echo e(base_url('/assets/css/bootstrap.min.css')); ?>" type="text/css" />
+     <link rel="stylesheet" href="<?php echo e(base_url('/assets/css/dataTabales.bootstrap4.min.css')); ?>" type="text/css" />
      <link rel="stylesheet" href="<?php echo e(base_url('assets/css/icons.min.css')); ?>" type="text/css" />
      <link rel="stylesheet" href="<?php echo e(base_url('assets/css/app.min.css')); ?>" type="text/css" />
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" type="text/css" />
@@ -135,7 +135,7 @@
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
 						    <li><a href="#">Wakil Rektor</a></li>
-						    <li><a href="#">BKAL</a></li>
+						    <li><a href="<?php echo e(base_url('admin/master_data/mahasiswa')); ?>">BKAL</a></li>
 						    <li><a href="#">Kaprodi</a></li>
 						    <li><a href="#">Dosen PA</a></li>
 						    <li><a href="#">Mahasiswa</a></li>
@@ -279,6 +279,11 @@
 	<!-- App js -->
 	<script src="<?php echo e(base_url('assets/js/app.min.js')); ?>"></script>
 
-	<?php echo $__env->yieldContent('js'); ?>
+	<!-- Datatable plugin js -->
+	<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap4.min.js"></script>
+	<!-- Datatable plugin js -->
+
+	<?php echo $__env->yieldContent('script'); ?>
 </body>
 </html><?php /**PATH C:\xampp\htdocs\simbea\application\modules\simbe\views/layouts/master.blade.php ENDPATH**/ ?>
