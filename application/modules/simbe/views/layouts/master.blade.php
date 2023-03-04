@@ -121,7 +121,7 @@
 					<li class="menu-title">Navigation</li>
 
 					<li>
-						<a href="javascript: void(0);" class="waves-effect waves-light">
+						<a href="{{ base_url('admin') }}" class="waves-effect waves-light">
 							<i class="mdi mdi-view-dashboard"></i>
 							<span>  Dashboard  </span>
 						 </a>
@@ -175,8 +175,7 @@
 							<div class="page-title-box">
 								<div class="page-title-right">
 									<ol class="breadcrumb m-0">
-										<li class="breadcrumb-item"><a href="">UPJ BEASISWA</a></li>
-										@yield('breadcrumb')
+										<li class="breadcrumb-item"><a href="">UPJ BEASISWA</a>@yield('breadcrumb')</li>
 									</ol>
 								</div>
 								<h4 class="page-title">@yield('page-title')</h4>

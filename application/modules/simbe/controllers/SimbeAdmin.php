@@ -6,7 +6,7 @@ class SimbeAdmin extends CI_Controller
 
      public function index()
      {
-          return m_view('simbe', 'admin/bkal/mahasiswa');
+          return m_view('simbe', 'admin/bkal/index');
      }
 
      public function tes()
