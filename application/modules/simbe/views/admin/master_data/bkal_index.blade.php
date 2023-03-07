@@ -1,24 +1,24 @@
+@extends('layouts.master')
 
-
-<?php $__env->startSection('title'); ?>
+@section('title')
     BKAL
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('breadcrumb'); ?>
-    
+@section('breadcrumb')
+    {{-- {!! empty($data['breadcrumb']) ? '' : $data['breadcrumb'] !!} --}}
     
     / BKAL
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('page-title'); ?>
+@section('page-title')
     Biro Kemahasiswaan Alumni
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('css'); ?>
+@section('css')
     
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('content'); ?>
+@section('content')
 <div class="card-box table-responsive">
     <div class="row">
         <div class="col-md-9">
@@ -31,7 +31,8 @@
             <button class="btn btn-success btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add-modal"><span><i class="mdi mdi-plus"></i>Tambah Penerima</i></button>
         </div>
     </div>
-    
+    {{-- <div class="float-right ">
+    </div> --}}
 
     <table id="penerima" class="table table-striped table-bordered dt-responsive " style="border-collapse: collapse; border-spacing: 0; width: 100%">
         <thead>
@@ -52,15 +53,15 @@
                 foreach ($p_mahasiswa as $data) {
             ?>                
             <tr>
-                <td class="text-center"><?php echo e($no++); ?></td>
-                <td><?php echo e($data->id); ?></td>
-                <td><?php echo e($data->nama); ?></td>
-                <td><?php echo e($data->nama_program); ?></td>
-                <td><?php echo e($data->nama_prodi); ?></td>
-                <td><?php echo e($data->status); ?></td>
+                <td class="text-center">{{ $no++ }}</td>
+                <td>{{ $data->id }}</td>
+                <td>{{ $data->nama }}</td>
+                <td>{{ $data->nama_program }}</td>
+                <td>{{ $data->nama_prodi }}</td>
+                <td>{{ $data->status }}</td>
                 <td class="text-center" style="vertical-align: middle;">
                     <button class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#edit-modal"><i class="mdi mdi-pencil"></i></button>
-                    
+                    {{-- <a href="#" class="m-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-modal"><i class="mdi mdi-pencil"></i></a> --}}
                     <a href="#" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-trash-can"></i></a>
                 </td>
             </tr>
@@ -99,9 +100,9 @@
                         <div class="form-group">
                             <label for="program" class="control-label">Program</label>
                             <select class="form-control" name="program" id="program">
-                                <?php $__currentLoopData = $program; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($item['program_id']); ?>" <?php echo e($data->program_id == $item['program_id'] ? ' selected' : ''); ?>><?php echo e($item['nama']); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                @foreach ($program as $item)
+                                    <option value="{{ $item['program_id'] }}" {{ $data->program_id == $item['program_id'] ? ' selected' : '' }}>{{ $item['nama'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -109,9 +110,9 @@
                         <div class="form-group">
                             <label for="prodi" class="control-label">Program Studi</label>
                             <select class="form-control" name="prodi" id="prodi">
-                                <?php $__currentLoopData = $program_studi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($item['prodi_id']); ?>" <?php echo e($data->prodi_id == $item['prodi_id'] ? ' selected' : ''); ?>><?php echo e($item['nama']); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                @foreach ($program_studi as $item)
+                                    <option value="{{ $item['prodi_id'] }}" {{ $data->prodi_id == $item['prodi_id'] ? ' selected' : '' }}>{{ $item['nama'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -181,7 +182,14 @@
                         </div>
                     </div>
                 </div>
-                
+                {{-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label for="field-7" class="control-label">Personal Info</label>
+                            <textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
@@ -222,9 +230,9 @@
                         <div class="form-group">
                             <label for="program" class="control-label">Program</label>
                             <select class="form-control" name="program" id="program">
-                                <?php $__currentLoopData = $program; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($item['program_id']); ?>" <?php echo e($data->program_id == $item['program_id'] ? ' selected' : ''); ?>><?php echo e($item['nama']); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                @foreach ($program as $item)
+                                    <option value="{{ $item['program_id'] }}" {{ $data->program_id == $item['program_id'] ? ' selected' : '' }}>{{ $item['nama'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -232,9 +240,9 @@
                         <div class="form-group">
                             <label for="prodi" class="control-label">Program Studi</label>
                             <select class="form-control" name="prodi" id="prodi">
-                                <?php $__currentLoopData = $program_studi; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($item['prodi_id']); ?>" <?php echo e($data->prodi_id == $item['prodi_id'] ? ' selected' : ''); ?>><?php echo e($item['nama']); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                @foreach ($program_studi as $item)
+                                    <option value="{{ $item['prodi_id'] }}" {{ $data->prodi_id == $item['prodi_id'] ? ' selected' : '' }}>{{ $item['nama'] }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -304,7 +312,14 @@
                         </div>
                     </div>
                 </div>
-                
+                {{-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group no-margin">
+                            <label for="field-7" class="control-label">Personal Info</label>
+                            <textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
@@ -316,9 +331,9 @@
 <!-- END MODAL ADD -->
     
     
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('script'); ?>
+@section('script')
 
     
 
@@ -327,5 +342,4 @@
     $('#penerima').DataTable();
     });
     </script>
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\simbea\application\modules\simbe\views/admin/master_data/index.blade.php ENDPATH**/ ?>
+@endsection

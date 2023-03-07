@@ -135,7 +135,7 @@
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
 						    <li><a href="#">Wakil Rektor</a></li>
-						    <li><a href="{{ base_url('admin/master_data/mahasiswa') }}">BKAL</a></li>
+						    <li><a href="{{ base_url('admin/master_data/bkal') }}">BKAL</a></li>
 						    <li><a href="#">Kaprodi</a></li>
 						    <li><a href="#">Dosen PA</a></li>
 						    <li><a href="#">Mahasiswa</a></li>
