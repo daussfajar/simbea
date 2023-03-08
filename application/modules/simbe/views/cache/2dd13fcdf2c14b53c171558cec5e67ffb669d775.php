@@ -134,11 +134,11 @@
 						    <span>  Master Data  </span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    <li><a href="#">Wakil Rektor</a></li>
+						    <li><a href="<?php echo e(base_url('admin/master_data/warek')); ?>">Wakil Rektor</a></li>
 						    <li><a href="<?php echo e(base_url('admin/master_data/bkal')); ?>">BKAL</a></li>
-						    <li><a href="#">Kaprodi</a></li>
-						    <li><a href="#">Dosen PA</a></li>
-						    <li><a href="#">Mahasiswa</a></li>
+						    <li><a href="<?php echo e(base_url('admin/master_data/kaprodi')); ?>">Kaprodi</a></li>
+						    <li><a href="<?php echo e(base_url('admin/master_data/dosen')); ?>">Dosen PA</a></li>
+						    <li><a href="<?php echo e(base_url('admin/master_data/mahasiswa')); ?>">Mahasiswa</a></li>
 						</ul>
 					</li>
 					<li>

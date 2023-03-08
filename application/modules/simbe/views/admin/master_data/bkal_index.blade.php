@@ -60,9 +60,10 @@
                 <td>{{ $data->nama_prodi }}</td>
                 <td>{{ $data->status }}</td>
                 <td class="text-center" style="vertical-align: middle;">
-                    <button class="btn btn-primary btn-sm waves-effect waves-light" data-toggle="modal" data-target="#edit-modal"><i class="mdi mdi-pencil"></i></button>
-                    {{-- <a href="#" class="m-1 btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-modal"><i class="mdi mdi-pencil"></i></a> --}}
-                    <a href="#" class="m-1 btn btn-danger btn-sm"><i class="mdi mdi-trash-can"></i></a>
+
+                    <a href="{{ base_url('admin/master_data/bkal/edit/'.$data->id) }}" class="m-1 btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
+
+                    <a href="#" class="m-1 btn btn-danger btn-sm" data-toggle="modal" data-target="#edit-modal"><i class="mdi mdi-trash-can"></i></a>
                 </td>
             </tr>
             <?php } ?>
@@ -71,7 +72,7 @@
 </div>
 
 <!-- START MODAL EDIT -->
-<div id="edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+<div id="edit-modal<?= $data->id ?>" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -85,7 +86,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="nim" class="control-label">NIM</label>
-                            <input type="text" class="form-control" id="nim" placeholder="Cth : 2023001001">
+                            <input type="text" class="form-control" id="nim" value="{{ $data->id }}">
                         </div>
                     </div>
                     <div class="col-md-6">
