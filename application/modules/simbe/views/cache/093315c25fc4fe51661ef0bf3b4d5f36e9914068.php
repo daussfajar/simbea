@@ -28,7 +28,8 @@
             </p>
         </div>
         <div class="col-md-3">
-            <button class="btn btn-success btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add-modal"><span><i class="mdi mdi-plus"></i>Tambah Penerima</i></button>
+            
+            <a href="<?php echo e(base_url('admin/master_data/bkal/add')); ?>" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-plus"></i>Tambah Penerima</i></a>
         </div>
     </div>
     
@@ -38,7 +39,7 @@
             <tr>
                 <th>No</th>
                 <th>NIM</th>
-                <th style="width: 25%">Nama Lengkap</th>
+                <th style="width: 20%">Nama Lengkap</th>
                 <th>Program</th>
                 <th>Prodi</th>
                 <th>Status</th>

@@ -148,10 +148,10 @@
 						    <span>  Beasiswa  </span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    	<li><a href="#">Laporan Prestasi Akademik</a></li>
-						    	<li><a href="#">Laporan Capaian Non Akademik</a></li>
+						    	<li><a href="<?php echo e(base_url('admin/beasiswa/prestasi')); ?>">Laporan Prestasi Akademik</a></li>
+						    	<li><a href="<?php echo e(base_url('admin/beasiswa/capaian')); ?>">Laporan Capaian Non Akademik</a></li>
 							
-							<li><a href="#">Laporan Keuangan Pendidikan</a></li>
+							<li><a href="<?php echo e(base_url('admin/beasiswa/keuangan')); ?>">Laporan Keuangan Pendidikan</a></li>
 						</ul>
 					</li>
 				</ul>
