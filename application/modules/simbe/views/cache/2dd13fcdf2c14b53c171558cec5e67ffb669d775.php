@@ -127,6 +127,7 @@
 						 </a>
 					</li>
 
+					<!-- START MASTER DATA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
@@ -141,6 +142,9 @@
 						    <li><a href="<?php echo e(base_url('admin/master_data/mahasiswa')); ?>">Mahasiswa</a></li>
 						</ul>
 					</li>
+					<!-- END MASTER DATA -->
+
+					<!-- START BEASISWA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
@@ -154,6 +158,8 @@
 							<li><a href="<?php echo e(base_url('admin/beasiswa/keuangan')); ?>">Laporan Keuangan Pendidikan</a></li>
 						</ul>
 					</li>
+					<!-- END BEASISWA -->
+
 				</ul>
 
 			</div>

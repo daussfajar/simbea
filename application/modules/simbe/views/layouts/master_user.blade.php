@@ -127,39 +127,28 @@
 						 </a>
 					</li>
 
-					<!-- START MASTER DATA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
 						    <span class="menu-arrow"></span>
-						    <span>  Master Data  </span>
+						    <span>Data Diri</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    <li><a href="{{ base_url('admin/master_data/warek') }}">Wakil Rektor</a></li>
-						    <li><a href="{{ base_url('admin/master_data/bkal') }}">BKAL</a></li>
-						    <li><a href="{{ base_url('admin/master_data/kaprodi') }}">Kaprodi</a></li>
-						    <li><a href="{{ base_url('admin/master_data/dosen') }}">Dosen PA</a></li>
-						    <li><a href="{{ base_url('admin/master_data/mahasiswa') }}">Mahasiswa</a></li>
+						    <li><a href="{{ base_url('user/data_diri') }}">Profil</a></li>
 						</ul>
 					</li>
-					<!-- END MASTER DATA -->
-
-					<!-- START BEASISWA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
 						    <span class="menu-arrow"></span>
-						    <span>  Beasiswa  </span>
+						    <span>Lap. Perkembangan</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    	<li><a href="{{ base_url('admin/beasiswa/prestasi') }}">Laporan Prestasi Akademik</a></li>
-						    	<li><a href="{{ base_url('admin/beasiswa/capaian') }}">Laporan Capaian Non Akademik</a></li>
-							{{-- Laporan Capaian Non Akademik -> Ikut Kegiatan Organisasi, Ikut kepanitiaan Organisasi, Publikasi Ilmiah/Karya Tulis/PKM --}}
-							<li><a href="{{ base_url('admin/beasiswa/keuangan') }}">Laporan Keuangan Pendidikan</a></li>
+						    <li><a href="{{ base_url('') }}">Prestasi Akademik</a></li>
+						    <li><a href="{{ base_url('') }}">Capaian Non Akademik</a></li>
+						    <li><a href="{{ base_url('') }}">Biaya Pendidikan</a></li>
 						</ul>
 					</li>
-					<!-- END BEASISWA -->
-
 				</ul>
 
 			</div>

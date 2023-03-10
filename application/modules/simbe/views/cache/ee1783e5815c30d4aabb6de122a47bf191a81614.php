@@ -4,19 +4,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <meta charset="UTF-8">
-     <title>UPJ SIMBE | Admin @yield('title')</title>
+     <title>UPJ SIMBE | Admin <?php echo $__env->yieldContent('title'); ?></title>
 
      <!-- APP FAVICON -->
      <link rel="shortcut icon" href="assets/icon/favicon/favicon.ico">
 
      <!-- APP CSS -->
-     <link rel="stylesheet" href="{{ base_url('/assets/css/bootstrap.min.css') }}" type="text/css" />
-     <link rel="stylesheet" href="{{ base_url('/assets/css/dataTabales.bootstrap4.min.css') }}" type="text/css" />
-     <link rel="stylesheet" href="{{ base_url('assets/css/icons.min.css') }}" type="text/css" />
-     <link rel="stylesheet" href="{{ base_url('assets/css/app.min.css') }}" type="text/css" />
+     <link rel="stylesheet" href="<?php echo e(base_url('/assets/css/bootstrap.min.css')); ?>" type="text/css" />
+     <link rel="stylesheet" href="<?php echo e(base_url('/assets/css/dataTabales.bootstrap4.min.css')); ?>" type="text/css" />
+     <link rel="stylesheet" href="<?php echo e(base_url('assets/css/icons.min.css')); ?>" type="text/css" />
+     <link rel="stylesheet" href="<?php echo e(base_url('assets/css/app.min.css')); ?>" type="text/css" />
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" type="text/css" />
 
-     @yield('css')
+     <?php echo $__env->yieldContent('css'); ?>
 </head>
 <body>
 
@@ -88,12 +88,12 @@
 
                <!-- LOGO -->
 			<div class="logo-box">
-				<a href="{{ base_url('admin/dashboard') }}" class="logo text-center">
+				<a href="<?php echo e(base_url('admin/dashboard')); ?>" class="logo text-center">
 					<span class="logo-lg">
-						<img src="{{ base_url('assets/icon/all/upj-logo-text-white.png') }}" alt="" height="70">
+						<img src="<?php echo e(base_url('assets/icon/all/upj-logo-text-white.png')); ?>" alt="" height="70">
 					</span>
 					<span class="logo-sm">
-						<img src="{{ base_url('assets/icon/all/upj-logo-text-white.png') }}" alt="" height="24">
+						<img src="<?php echo e(base_url('assets/icon/all/upj-logo-text-white.png')); ?>" alt="" height="24">
 					</span>
 				</a>
 			</div>
@@ -121,45 +121,34 @@
 					<li class="menu-title">Navigation</li>
 
 					<li>
-						<a href="{{ base_url('admin') }}" class="waves-effect waves-light">
+						<a href="<?php echo e(base_url('admin')); ?>" class="waves-effect waves-light">
 							<i class="mdi mdi-view-dashboard"></i>
 							<span>  Dashboard  </span>
 						 </a>
 					</li>
 
-					<!-- START MASTER DATA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
 						    <span class="menu-arrow"></span>
-						    <span>  Master Data  </span>
+						    <span>Data Diri</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    <li><a href="{{ base_url('admin/master_data/warek') }}">Wakil Rektor</a></li>
-						    <li><a href="{{ base_url('admin/master_data/bkal') }}">BKAL</a></li>
-						    <li><a href="{{ base_url('admin/master_data/kaprodi') }}">Kaprodi</a></li>
-						    <li><a href="{{ base_url('admin/master_data/dosen') }}">Dosen PA</a></li>
-						    <li><a href="{{ base_url('admin/master_data/mahasiswa') }}">Mahasiswa</a></li>
+						    <li><a href="<?php echo e(base_url('user/data_diri')); ?>">Profil</a></li>
 						</ul>
 					</li>
-					<!-- END MASTER DATA -->
-
-					<!-- START BEASISWA -->
 					<li>
 						<a href="javascript: void(0);" class="waves-effect waves-light">
 						    <i class="mdi mdi-view-dashboard"></i>
 						    <span class="menu-arrow"></span>
-						    <span>  Beasiswa  </span>
+						    <span>Lap. Perkembangan</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    	<li><a href="{{ base_url('admin/beasiswa/prestasi') }}">Laporan Prestasi Akademik</a></li>
-						    	<li><a href="{{ base_url('admin/beasiswa/capaian') }}">Laporan Capaian Non Akademik</a></li>
-							{{-- Laporan Capaian Non Akademik -> Ikut Kegiatan Organisasi, Ikut kepanitiaan Organisasi, Publikasi Ilmiah/Karya Tulis/PKM --}}
-							<li><a href="{{ base_url('admin/beasiswa/keuangan') }}">Laporan Keuangan Pendidikan</a></li>
+						    <li><a href="<?php echo e(base_url('')); ?>">Prestasi Akademik</a></li>
+						    <li><a href="<?php echo e(base_url('')); ?>">Capaian Non Akademik</a></li>
+						    <li><a href="<?php echo e(base_url('')); ?>">Biaya Pendidikan</a></li>
 						</ul>
 					</li>
-					<!-- END BEASISWA -->
-
 				</ul>
 
 			</div>
@@ -181,10 +170,10 @@
 							<div class="page-title-box">
 								<div class="page-title-right">
 									<ol class="breadcrumb m-0">
-										<li class="breadcrumb-item"><a href="">UPJ BEASISWA</a>@yield('breadcrumb')</li>
+										<li class="breadcrumb-item"><a href="">UPJ BEASISWA</a><?php echo $__env->yieldContent('breadcrumb'); ?></li>
 									</ol>
 								</div>
-								<h4 class="page-title">@yield('page-title')</h4>
+								<h4 class="page-title"><?php echo $__env->yieldContent('page-title'); ?></h4>
 							</div>
 						</div>
 					</div>
@@ -192,7 +181,7 @@
 
 					<div class="row">
 						<div class="col-md-12">
-							@yield('content')
+							<?php echo $__env->yieldContent('content'); ?>
 						</div>
 					</div>
 
@@ -218,7 +207,7 @@
 		<div id="modal-logout" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<form action="{{ base_url('admin/auth/logout') }}" method="post" accept-charset="utf-8">
+					<form action="<?php echo e(base_url('admin/auth/logout')); ?>" method="post" accept-charset="utf-8">
 						<input type="hidden" name="<?=$CI->security->get_csrf_token_name();?>"
 							value="<?=$CI->security->get_csrf_hash();?>" />
 						<div class="modal-body">
@@ -244,7 +233,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Ubah Password</h5>
                     </div>
-					<form action="{{ base_url('admin/auth/ubah_password') }}" method="post" accept-charset="utf-8">
+					<form action="<?php echo e(base_url('admin/auth/ubah_password')); ?>" method="post" accept-charset="utf-8">
 						<input type="hidden" name="<?=$CI->security->get_csrf_token_name();?>"
 							value="<?=$CI->security->get_csrf_hash();?>" />
 						<div class="modal-body">
@@ -279,16 +268,16 @@
      
 	<!-- Vendor js -->
 	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-	<script src="{{ base_url('assets/js/vendor.min.js') }}"></script>
+	<script src="<?php echo e(base_url('assets/js/vendor.min.js')); ?>"></script>
 
 	<!-- App js -->
-	<script src="{{ base_url('assets/js/app.min.js') }}"></script>
+	<script src="<?php echo e(base_url('assets/js/app.min.js')); ?>"></script>
 
 	<!-- Datatable plugin js -->
 	<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap4.min.js"></script>
 	<!-- Datatable plugin js -->
 
-	@yield('script')
+	<?php echo $__env->yieldContent('script'); ?>
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\simbea\application\modules\simbe\views/layouts/master_user.blade.php ENDPATH**/ ?>

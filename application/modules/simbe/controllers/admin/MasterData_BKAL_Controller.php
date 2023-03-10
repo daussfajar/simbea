@@ -17,6 +17,7 @@ class MasterData_BKAL_Controller extends CI_Controller
      {
 
           $data['p_mahasiswa'] = $this->m_bkal->penerima_beasiswa();
+          $data['na_mahasiswa'] = $this->m_bkal->na_beasiswa();
 
           $data['program'] = $this->db->select('*')
                ->from('sibea_program')
@@ -27,6 +28,12 @@ class MasterData_BKAL_Controller extends CI_Controller
           $data['program_studi'] = $this->db->select('*')
                ->from('sibea_prodi')
                ->where('NA', 'N')
+               ->get()
+               ->result_array();
+
+          $data['status'] = $this->db->select('*')
+               ->from('sibea_status')
+               ->where('status', 'N')
                ->get()
                ->result_array();
 

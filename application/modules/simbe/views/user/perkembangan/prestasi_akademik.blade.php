@@ -1,17 +1,17 @@
-@extends('layouts.master')
+@extends('layouts.master_user')
 
 @section('title')
-    {{ empty($data['title']) ? '' : $data['title'] }}
+    Prestasi Akademik
 @endsection
 
 @section('breadcrumb')
     {{-- {!! empty($data['breadcrumb']) ? '' : $data['breadcrumb'] !!} --}}
     
-    / Wakil Rektor
+    / Prestasi
 @endsection
 
 @section('page-title')
-    Wakil Rektor
+    Prestasi Akademik
 @endsection
 
 @section('css')
@@ -19,27 +19,12 @@
 @endsection
 
 @section('content')
-{{-- <div class="col-xl-3 col-md-6">
-    <div class="card widget-box-one border border-primary bg-primary">
-        <div class="card-body">
-            <div class="float-right avatar-lg rounded-circle mt-3">
-                <i class="mdi mdi-account font-30 widget-icon rounded-circle avatar-title "></i>
-            </div>
-            <div class="wigdet-one-content">
-                <p class="m-0 text-uppercase font-weight-bold text-light " title="Statistics">Jumlah Mahasiswa</p>
-                <h2 class="text-light"><span data-plugin="counterup">34578</span></h2>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-<!-- START VERIFIKASI -->
 <div class="card-box table-responsive">
     <div class="row">
         <div class="col-md-9">
-            <div class="header-title"><b>Approval Beasiswa</b></div>
+            <div class="header-title"><b>Data Penerima Beasiswa</b></div>
             <p class="sub-header">
-                Mahasiswa yang perlu mendapatkan persetujuan beasiswa Universitas Pembangunan Jaya
+                Mahasiswa yang mendapatkan beasiswa Universitas Pembangunan Jaya
             </p>
         </div>
         <div class="col-md-3">
@@ -57,9 +42,8 @@
                 <th>NIM</th>
                 <th style="width: 20%">Nama Lengkap</th>
                 <th>Program</th>
-                <th style="width: 15%">Prodi</th>
+                <th>Prodi</th>
                 <th>Status</th>
-                <th style="width: 19%">Keterangan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -75,14 +59,7 @@
                 <td>{{ $data->nama }}</td>
                 <td>{{ $data->nama_program }}</td>
                 <td>{{ $data->nama_prodi }}</td>
-                <td>
-                    <span class="badge badge-primary">
-                        @if ($data->status == 'Aktif')
-                            {{ 'Aktif' }}
-                        @endif
-                    </span>
-                </td>
-                <td>{{ $data->keterangan }}</td>
+                <td>{{ $data->status }}</td>
                 <td class="text-center" style="vertical-align: middle;">
 
                     <a href="{{ base_url('admin/master_data/bkal/edit/'. $data->id) }}" class="m-1 btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
@@ -94,9 +71,23 @@
         </tbody>
     </table>
 </div>
-<!-- END VERIFIKASI -->
+
+<!-- START MODAL EDIT -->
+
+<!-- END MODAL EDIT -->
+
+<!-- START MODAL ADD -->
+
+<!-- END MODAL ADD -->
+    
+    
 @endsection
 
-@section('js')
-    
+@section('script')
+
+    <script>
+        $(document).ready(function () {
+    $('#penerima').DataTable();
+    });
+    </script>
 @endsection
