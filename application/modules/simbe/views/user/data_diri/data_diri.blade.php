@@ -1,17 +1,17 @@
 @extends('layouts.master_user')
 
 @section('title')
-    Data Diri
+    Profil
 @endsection
 
 @section('breadcrumb')
     {{-- {!! empty($data['breadcrumb']) ? '' : $data['breadcrumb'] !!} --}}
     
-    / Data Diri
+    / Data Diri / Profil
 @endsection
 
 @section('page-title')
-    Data Diri
+    Profil
 @endsection
 
 @section('css')

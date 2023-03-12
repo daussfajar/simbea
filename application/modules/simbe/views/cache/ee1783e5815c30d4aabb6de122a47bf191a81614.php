@@ -134,7 +134,7 @@
 						    <span>Data Diri</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    <li><a href="<?php echo e(base_url('user/data_diri')); ?>">Profil</a></li>
+						    <li><a href="<?php echo e(base_url('user/profil')); ?>">Profil</a></li>
 						</ul>
 					</li>
 					<li>
@@ -144,9 +144,9 @@
 						    <span>Lap. Perkembangan</span>
 						</a>
 						<ul class="nav-second-level" aria-expanded="false">
-						    <li><a href="<?php echo e(base_url('')); ?>">Prestasi Akademik</a></li>
-						    <li><a href="<?php echo e(base_url('')); ?>">Capaian Non Akademik</a></li>
-						    <li><a href="<?php echo e(base_url('')); ?>">Biaya Pendidikan</a></li>
+						    <li><a href="<?php echo e(base_url('user/prestasi')); ?>">Prestasi Akademik</a></li>
+						    <li><a href="<?php echo e(base_url('user/capaian')); ?>">Capaian Non Akademik</a></li>
+						    <li><a href="<?php echo e(base_url('user/biaya')); ?>">Biaya Pendidikan</a></li>
 						</ul>
 					</li>
 				</ul>

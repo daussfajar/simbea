@@ -1,0 +1,10 @@
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('AKT', '2', 'Akuntansi', 'Accounting', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('ARS', '1', 'Arsitektur', 'Architecture', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('DKV', '1', 'Desain Komunikasi Visual', 'Graphic Design', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('DPI', '1', 'Desain Produk', 'Product Design', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('KOM', '2', 'Ilmu Komunikasi', 'Communication Science', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('MGT', '2', 'Manajemen', 'Management', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('PSI', '2', 'Psikologi', 'Psychology', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('SIF', '1', 'Sistem Informasi', 'Information Systems', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('TIF', '1', 'Informatika', 'Informatics', 'N');
+INSERT INTO `sibea_prodi` (`prodi_id`, `fakultas_id`, `nama`, `nama_en`, `NA`) VALUES ('TSP', '1', 'Teknik Sipil', 'Civil Engineering', 'N');

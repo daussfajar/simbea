@@ -15,6 +15,9 @@ class DataDiri_Controller extends CI_Controller
 
      public function index()
      {
+          $uri = $this->uri->segment(1);
+
+          // print_r($uri);
 
           $data['p_mahasiswa'] = $this->m_bkal->penerima_beasiswa();
 

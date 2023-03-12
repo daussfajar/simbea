@@ -1,17 +1,17 @@
 
 
 <?php $__env->startSection('title'); ?>
-    Data Diri
+    Profil
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('breadcrumb'); ?>
     
     
-    / Data Diri
+    / Data Diri / Profil
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('page-title'); ?>
-    Data Diri
+    Profil
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
