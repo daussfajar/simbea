@@ -22,7 +22,7 @@
 
 <?php echo form_open(base_url() . 'admin/master_data/bkal/add/simpan'); ?>
 
-
+<input type="hidden" id="nik" name="nik" value="<?= $CI->uri->segment(5) ?>">
      <div class="row">
           <div class="col md-12">
                <div class="card">

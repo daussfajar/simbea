@@ -1,0 +1,74 @@
+{
+  "RECORDS": [
+    {
+      "prodi_id": "AKT",
+      "fakultas_id": "2",
+      "nama": "Akuntansi",
+      "nama_en": "Accounting",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "ARS",
+      "fakultas_id": "1",
+      "nama": "Arsitektur",
+      "nama_en": "Architecture",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "DKV",
+      "fakultas_id": "1",
+      "nama": "Desain Komunikasi Visual",
+      "nama_en": "Graphic Design",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "DPI",
+      "fakultas_id": "1",
+      "nama": "Desain Produk",
+      "nama_en": "Product Design",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "KOM",
+      "fakultas_id": "2",
+      "nama": "Ilmu Komunikasi",
+      "nama_en": "Communication Science",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "MGT",
+      "fakultas_id": "2",
+      "nama": "Manajemen",
+      "nama_en": "Management",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "PSI",
+      "fakultas_id": "2",
+      "nama": "Psikologi",
+      "nama_en": "Psychology",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "SIF",
+      "fakultas_id": "1",
+      "nama": "Sistem Informasi",
+      "nama_en": "Information Systems",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "TIF",
+      "fakultas_id": "1",
+      "nama": "Informatika",
+      "nama_en": "Informatics",
+      "NA": "N"
+    },
+    {
+      "prodi_id": "TSP",
+      "fakultas_id": "1",
+      "nama": "Teknik Sipil",
+      "nama_en": "Civil Engineering",
+      "NA": "N"
+    }
+  ]
+}

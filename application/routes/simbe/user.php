@@ -6,7 +6,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 Route::group('user', function () {
      $url = 'simbe/user/';
-     Route::get('dashboard', 'simbe/admin/DashboardController@index');
+     Route::get('dashboard', 'simbe/user/DashboardController@index');
 
      // Route::group('master_data', function () {
      //      $url = 'simbe/admin/';
@@ -22,7 +22,7 @@ Route::group('user', function () {
      //      Route::get('dosen', $url . 'MasterData_Dosen_Controller@index');
      //      Route::get('mahasiswa', $url . 'MasterData_Mahasiswa_Controller@index');
      // });
-     
+
      // Data Diri
      Route::get('profil', $url . 'DataDiri_Controller@index');
 

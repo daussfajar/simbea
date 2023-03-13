@@ -1,0 +1,19 @@
+{
+  "RECORDS": [
+    {
+      "status_id": "1",
+      "nama": "Aktif",
+      "status": "N"
+    },
+    {
+      "status_id": "2",
+      "nama": "Tidak Aktif",
+      "status": "N"
+    },
+    {
+      "status_id": "3",
+      "nama": "Verifikasi",
+      "status": "N"
+    }
+  ]
+}

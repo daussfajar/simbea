@@ -88,7 +88,7 @@
 
                <!-- LOGO -->
 			<div class="logo-box">
-				<a href="<?php echo e(base_url('admin/dashboard')); ?>" class="logo text-center">
+				<a href="<?php echo e(base_url('user/dashboard')); ?>" class="logo text-center">
 					<span class="logo-lg">
 						<img src="<?php echo e(base_url('assets/icon/all/upj-logo-text-white.png')); ?>" alt="" height="70">
 					</span>
@@ -121,7 +121,7 @@
 					<li class="menu-title">Navigation</li>
 
 					<li>
-						<a href="<?php echo e(base_url('admin')); ?>" class="waves-effect waves-light">
+						<a href="<?php echo e(base_url('user/dashboard')); ?>" class="waves-effect waves-light">
 							<i class="mdi mdi-view-dashboard"></i>
 							<span>  Dashboard  </span>
 						 </a>

@@ -1,0 +1,14 @@
+{
+  "RECORDS": [
+    {
+      "program_id": "REG",
+      "nama": "Regular",
+      "status": "N"
+    },
+    {
+      "program_id": "BLD",
+      "nama": "Blended Learning",
+      "status": "N"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "RECORDS": [
+    {
+      "id": "20211",
+      "nama": "Tahun Akademik 20211",
+      "periode_mulai": "1/12/2022",
+      "periode_selesai": "31/5/2023",
+      "status": "tidak aktif"
+    },
+    {
+      "id": "20212",
+      "nama": "Tahun Akademik 20212",
+      "periode_mulai": "1/12/2022",
+      "periode_selesai": "31/5/2023",
+      "status": "tidak aktif"
+    },
+    {
+      "id": "20221",
+      "nama": "Tahun Akademik 20221",
+      "periode_mulai": "1/1/2023",
+      "periode_selesai": "31/5/2023",
+      "status": "aktif"
+    },
+    {
+      "id": "20222",
+      "nama": "Tahun Akademik 20222",
+      "periode_mulai": "30/4/2023",
+      "periode_selesai": "30/4/2023",
+      "status": "tidak aktif"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "RECORDS": [
+    {
+      "id": "11",
+      "nama": "Aceh",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "12",
+      "nama": "Sumatera Utara",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "13",
+      "nama": "Sumatera Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "14",
+      "nama": "Riau",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "15",
+      "nama": "Jambi",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "16",
+      "nama": "Sumatera Selatan",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "17",
+      "nama": "Bengkulu",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "18",
+      "nama": "Lampung",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "19",
+      "nama": "Kepulauan Bangka Belitung",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "21",
+      "nama": "Kepulauan Riau",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "31",
+      "nama": "DKI Jakarta",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "32",
+      "nama": "Jawa Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "33",
+      "nama": "Jawa Tengah",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "34",
+      "nama": "DI Yogyakarta",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "35",
+      "nama": "Jawa Timur",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "36",
+      "nama": "Banten",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "51",
+      "nama": "Bali",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "52",
+      "nama": "Nusa Tenggara Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "53",
+      "nama": "Nusa Tenggara Timur",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "61",
+      "nama": "Kalimantan Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "62",
+      "nama": "Kalimantan Tengah",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "63",
+      "nama": "Kalimantan Selatan",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "64",
+      "nama": "Kalimantan Timur",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "65",
+      "nama": "Kalimantan Utara",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "71",
+      "nama": "Sulawesi Utara",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "72",
+      "nama": "Sulawesi Tengah",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "73",
+      "nama": "Sulawesi Selatan",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "74",
+      "nama": "Sulawesi Tenggara",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "75",
+      "nama": "Gorontalo",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "76",
+      "nama": "Sulawesi Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "81",
+      "nama": "Maluku",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "82",
+      "nama": "Maluku Utara",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "91",
+      "nama": "Papua Barat",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    },
+    {
+      "id": "92",
+      "nama": "Papua",
+      "created_at": "",
+      "updated_at": "",
+      "deleted_at": ""
+    }
+  ]
+}
