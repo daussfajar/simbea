@@ -16,6 +16,7 @@ class MasterData_Dosen_Controller extends CI_Controller
           // $data['p_mahasiswa'] = $this->m_dosen->penerima_beasiswa();
           // $data['na_mahasiswa'] = $this->m_dosen->na_beasiswa();
           $data['penerima'] = $this->m_dosen->penerima_mahasiswa();
+          $data['d_approval'] = $this->m_dosen->transac_approval();
 
           $data['program'] = $this->db->select('*')
                ->from('sibea_program')

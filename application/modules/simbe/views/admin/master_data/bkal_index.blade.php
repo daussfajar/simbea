@@ -104,7 +104,6 @@
                 <th>Program</th>
                 <th style="width: 15%">Prodi</th>
                 <th>Status</th>
-                <th style="width: 19%">Keterangan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -123,11 +122,10 @@
                 <td class="text-center">
                     <span class="badge badge-success">
                         @if ($data->status == 'Tidak Aktif')
-                            {{ 'SELESAI' }}
+                            {{ 'Selesai' }}
                         @endif
                     </span>
                 </td>
-                <td>{{ $data->keterangan }}</td>
                 <td class="text-center" style="vertical-align: middle;">
 
                     <a href="{{ base_url('admin/master_data/bkal/edit/'. $data->id) }}" class="m-1 btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>

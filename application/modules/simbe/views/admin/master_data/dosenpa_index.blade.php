@@ -12,7 +12,7 @@
 @endsection
 
 @section('page-title')
-    Dosen Pembimbinga Akademik
+    Dosen Pembimbing Akademik
 @endsection
 
 @section('css')
@@ -20,34 +20,31 @@
 @endsection
 
 @section('content')
-<!-- START PENERIMA BEASISWA -->
+<!-- START BUTUH APPROVAL BEASISWA -->
 <div class="card-box table-responsive">
     <div class="row">
         <div class="col-md-9">
-            <div class="header-title"><b>Data Penerima Beasiswa</b></div>
+            <div class="header-title"><b>Data Approval Beasiswa</b></div>
             <p class="sub-header">
-                Mahasiswa yang membutuhkan approval beasiswa Universitas Pembangunan Jaya
+                Mahasiswa yang membutuhkan approval Dosen Universitas Pembangunan Jaya
             </p>
         </div>
         <div class="col-md-3">
             {{-- <button class="btn btn-success btn-sm waves-effect waves-light" data-toggle="modal" data-target="#add-modal"><span><i class="mdi mdi-plus"></i>Tambah Penerima</i></button> --}}
-            <a href="{{ base_url('admin/master_data/bkal/add') }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-plus"></i>Tambah Penerima</i></a>
+            {{-- <a href="{{ base_url('admin/master_data/bkal/add') }}" class="btn btn-success btn-sm waves-effect waves-light"><i class="mdi mdi-plus"></i>Tambah Penerima</i></a> --}}
         </div>
     </div>
     {{-- <div class="float-right ">
     </div> --}}
 
-    <table id="penerima" class="table table-striped table-bordered dt-responsive " style="border-collapse: collapse; border-spacing: 0; width: 100%">
+    <table id="na_aktif" class="table table-striped table-bordered dt-responsive " style="border-collapse: collapse; border-spacing: 0; width: 100%">
         <thead>
             <tr>
                 <th>No</th>
                 <th>NIM</th>
                 <th style="width: 20%">Nama Lengkap</th>
-                <th>Program</th>
-                <th style="width: 15%">Prodi</th>
-                <th style="width: 19%">Approval Dosen</th>
+                <th style="width: 15%">Status Approval</th>
                 <th>Status</th>
-                <th style="width: 19%">Keterangan</th>
                 <th style="width: 18%">Aksi</th>
             </tr>
         </thead>
@@ -55,23 +52,28 @@
         <tbody>
             <?php  
                 $no = 1;
-                foreach ($penerima as $data) {
+                foreach ($d_approval as $data) {
             ?>                
             <tr>
                 <td class="text-center">{{ $no++ }}</td>
-                <td>{{ $data->id }}</td>
+                <td>{{ $data->nim }}</td>
                 <td>{{ $data->nama }}</td>
-                <td>{{ $data->nama_program }}</td>
-                <td>{{ $data->nama_prodi }}</td>
-                <td>{{ $data->nama_prodi }}</td>
-                <td>
-                    <span class="badge badge-primary">
-                        @if ($data->status == 'Aktif')
-                            {{ 'Aktif' }}
+                <td>{{ $data->status_mahasiswa }}</td>
+                <td class="text-center">
+                    <?php 
+                            if($data->status_dosen == '' || $data->status_dosen == '0'){
+                                echo "<span class='badge badge-danger'>Belum Disetujui</span>";
+                            } else {
+                                echo "<span class='badge badge-success'>Disetujui</span>";
+                            }
+                        ?>
+                    {{-- <span class="badge badge-success">
+                        @if ($data->status_dosen == '' || '0')
+                            {{ 'Belum Disetujui', 'Disetujui' }}
                         @endif
-                    </span>
+                        
+                    </span> --}}
                 </td>
-                <td>{{ $data->keterangan }}</td>
                 <td class="text-center" style="vertical-align: middle;">
 
                     <a href="{{ base_url('admin/master_data/bkal/edit/'. $data->id) }}" class="m-1 btn btn-primary btn-sm"><i class="mdi mdi-pencil"></i></a>
@@ -83,10 +85,18 @@
         </tbody>
     </table>
 </div>
-<!-- END PENERIMA BEASISWA -->
+<!-- END BUTUH APPROVAL BEASISWA -->
 
 @endsection
 
 @section('js')
-    
+    <script>
+        $(document).ready(function () {
+        $('#penerima').DataTable();
+    });
+
+    $(document).ready(function () {
+        $('#na_aktif').DataTable();
+    });
+    </script>
 @endsection

@@ -69,7 +69,7 @@ class MasterData_BKAL_Controller extends CI_Controller
           if ($this->form_validation->run() == TRUE) {
                $nim = $this->uri->segment(5);
 
-               $data = [
+               $data_mhsw = [
                     'id' => $this->input->post('nim', true),
                     'nama' => $this->input->post('nama_lengkap', true),
                     'program_id' => $this->input->post('program', true),
@@ -81,8 +81,14 @@ class MasterData_BKAL_Controller extends CI_Controller
                     'alamat' => $this->input->post('alamat', true),
                ];
 
+               $data_approval = [
+                    'nim' => $this->input->post('nim', true),
+               ];
+
+
                // $this->db->where('id', $nim);
-               $this->db->insert('sibea_mhsw', $data);
+               $this->db->insert('sibea_mhsw', $data_mhsw);
+               $this->db->insert('sibea_transac_approval', $data_approval);
 
                $this->session->set_flashdata('message', [
                     'type' => 'success',
@@ -98,6 +104,54 @@ class MasterData_BKAL_Controller extends CI_Controller
                $this->session->set_flashdata('error_validation', $error);
 
                return redirect(base_url('admin/master_data/bkal/add'));
+          }
+     }
+
+
+
+     public function simpan_penerima()
+     {
+          // $this->form_validation->set_rules('nim', 'NIM', 'trim|required|xss_clean');
+          $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|xss_clean');
+
+          if ($this->form_validation->run() == TRUE) {
+               $nim = $this->uri->segment(5);
+
+               $data_mhsw = [
+                    'id' => $this->input->post('nim', true),
+                    'nama' => $this->input->post('nama_lengkap', true),
+                    'program_id' => $this->input->post('program', true),
+                    'prodi_id' => $this->input->post('prodi', true),
+                    'tempat_lahir' => $this->input->post('tempat_lahir', true),
+                    'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
+                    'status' => $this->input->post('status', true),
+
+                    'alamat' => $this->input->post('alamat', true),
+               ];
+
+
+               $data_approval = [
+                    'nim' => $this->input->post('nim', true),
+               ];
+
+               $this->db->where('id', $nim);
+               $this->db->update('sibea_mhsw', $data_mhsw);
+               $this->db->update('sibea_transac_approval', $data_approval);
+
+               $this->session->set_flashdata('message', [
+                    'type' => 'success',
+                    'message' => 'Anda berhasil mengubah data!',
+                    'title' => 'Success!'
+               ]);
+
+               return redirect(base_url('admin/master_data/bkal'));
+          } else {
+               $error = [
+                    'form_error' => validation_errors_array()
+               ];
+               $this->session->set_flashdata('error_validation', $error);
+
+               return redirect(base_url('admin/master_data/bkal'));
           }
      }
 
@@ -152,46 +206,6 @@ class MasterData_BKAL_Controller extends CI_Controller
                $this->session->set_flashdata('error_validation', $error);
 
                return m_view('simbe', 'admin/master_data/bkal_edit', $data);
-          }
-     }
-
-     public function simpan_penerima()
-     {
-          // $this->form_validation->set_rules('nim', 'NIM', 'trim|required|xss_clean');
-          $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|xss_clean');
-
-          if ($this->form_validation->run() == TRUE) {
-               $nim = $this->uri->segment(5);
-
-               $data = [
-                    'id' => $this->input->post('nim', true),
-                    'nama' => $this->input->post('nama_lengkap', true),
-                    'program_id' => $this->input->post('program', true),
-                    'prodi_id' => $this->input->post('prodi', true),
-                    'tempat_lahir' => $this->input->post('tempat_lahir', true),
-                    'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
-                    'status' => $this->input->post('status', true),
-
-                    'alamat' => $this->input->post('alamat', true),
-               ];
-
-               $this->db->where('id', $nim);
-               $this->db->update('sibea_mhsw', $data);
-
-               $this->session->set_flashdata('message', [
-                    'type' => 'success',
-                    'message' => 'Anda berhasil mengubah data!',
-                    'title' => 'Success!'
-               ]);
-
-               return redirect(base_url('admin/master_data/bkal'));
-          } else {
-               $error = [
-                    'form_error' => validation_errors_array()
-               ];
-               $this->session->set_flashdata('error_validation', $error);
-
-               return redirect(base_url('admin/master_data/bkal'));
           }
      }
 }

@@ -27,4 +27,18 @@ class Dosen_Model extends CI_Model
 
           return $this->db->get()->result();
      }
+
+     public function transac_approval()
+     {
+          $this->db->select('
+               t.*,
+               m.status as status_mahasiswa,
+               t.app_dosen as status_dosen,
+          ');
+          $this->db->from('sibea_transac_approval as t');
+          $this->db->join('sibea_mhsw as m', 't.approval_id = m.approval_id');
+          $this->db->where('t.na', 'N');
+
+          return $this->db->get()->result();
+     }
 }
